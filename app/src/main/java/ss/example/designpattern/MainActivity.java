@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import ss.example.designpattern.TemplateMethod.AbstractDisplay;
+import ss.example.designpattern.TemplateMethod.CharDisplay;
 import ss.example.designpattern.singleton.Singleton;
 import ss.example.designpattern.singleton.SingletonQuiz;
 
@@ -15,13 +17,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-//        singletonMethod();
+//        singleton();
 //        singletonQuizThread();
+//        templateMethod();
+
     }
 
+    private void templateMethod() {
+        AbstractDisplay d1 = new CharDisplay("BnpInnovation");
+        d1.display();
+    }
 
-    private void singletonMethod() {
+    private void singleton() {
         Log.e(TAG, "Start");
         Singleton obj1 = Singleton.getInstance();
         Singleton obj2 = Singleton.getInstance();
@@ -36,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    singletonQuizMethod();
+                    singletonQuiz();
                 }
             }).start();
         }
     }
 
-    private void singletonQuizMethod() {
+    private void singletonQuiz() {
         SingletonQuiz obj1 = SingletonQuiz.getInstance();
         SingletonQuiz obj2 = SingletonQuiz.getInstance();
         Log.e(TAG, "obj 1 : " + obj1.toString());
