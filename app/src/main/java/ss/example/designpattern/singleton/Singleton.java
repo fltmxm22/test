@@ -1,4 +1,4 @@
-package ss.example.designpattern.singleton;
+package ss.example.designpattern.Singleton;
 
 import android.util.Log;
 
