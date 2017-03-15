@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import ss.example.designpattern.FactoryMethod.framework.Factory;
+import ss.example.designpattern.FactoryMethod.framework.Product;
+import ss.example.designpattern.FactoryMethod.idcard.IDCardFactory;
 import ss.example.designpattern.TemplateMethod.AbstractDisplay;
 import ss.example.designpattern.TemplateMethod.CharDisplay;
 import ss.example.designpattern.singleton.Singleton;
@@ -20,8 +23,19 @@ public class MainActivity extends AppCompatActivity {
 //        singleton();
 //        singletonQuizThread();
 //        templateMethod();
-
+//        factoryMethod();
     }
+
+    private void factoryMethod() {
+        Factory factory = new IDCardFactory();
+        Product card1 = factory.create("정종호");
+        Product card2 = factory.create("이승철");
+        Product card3 = factory.create("박종현");
+        card1.use();
+        card2.use();
+        card3.use();
+    }
+
 
     private void templateMethod() {
         AbstractDisplay d1 = new CharDisplay("BnpInnovation");
