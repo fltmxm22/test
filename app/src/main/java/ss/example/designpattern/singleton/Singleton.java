@@ -1,6 +1,8 @@
-package ss.example.designpattern;
+package ss.example.designpattern.singleton;
 
 import android.util.Log;
+
+import ss.example.designpattern.MainActivity;
 
 public class Singleton {
     private static Singleton singleton = new Singleton();
