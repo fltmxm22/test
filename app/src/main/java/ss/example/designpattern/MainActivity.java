@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import ss.example.designpattern.Command.command.TurnOnCommand;
+import ss.example.designpattern.Command.invoker.RemoteControl;
+import ss.example.designpattern.Command.receiver.Television;
 import ss.example.designpattern.FactoryMethod.framework.Factory;
 import ss.example.designpattern.FactoryMethod.framework.Product;
 import ss.example.designpattern.FactoryMethod.idcard.IDCardFactory;
@@ -28,7 +31,13 @@ public class MainActivity extends AppCompatActivity {
 //        templateMethod();
 //        factoryMethod();
 //        strategy();
-//        observer();
+
+        RemoteControl remote = new RemoteControl();
+        Television television = new Television();
+        TurnOnCommand tvOn = new TurnOnCommand(television);
+
+        remote.setCommand(tvOn);
+        remote.onClick();
     }
 
     private void singleton() {
