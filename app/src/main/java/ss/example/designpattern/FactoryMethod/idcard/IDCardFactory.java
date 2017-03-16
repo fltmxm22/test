@@ -6,10 +6,6 @@ import java.util.List;
 import ss.example.designpattern.FactoryMethod.framework.Factory;
 import ss.example.designpattern.FactoryMethod.framework.Product;
 
-/**
- * Created by SS on 2017-03-15.
- */
-
 public class IDCardFactory extends Factory {
     private List owners = new ArrayList();
 

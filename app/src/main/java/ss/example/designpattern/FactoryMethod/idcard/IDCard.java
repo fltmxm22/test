@@ -5,10 +5,6 @@ import android.util.Log;
 import ss.example.designpattern.FactoryMethod.framework.Product;
 import ss.example.designpattern.MainActivity;
 
-/**
- * Created by SS on 2017-03-15.
- */
-
 public class IDCard extends Product {
     private String owner;
 
