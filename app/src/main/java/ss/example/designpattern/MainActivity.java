@@ -7,11 +7,6 @@ import android.util.Log;
 import ss.example.designpattern.FactoryMethod.framework.Factory;
 import ss.example.designpattern.FactoryMethod.framework.Product;
 import ss.example.designpattern.FactoryMethod.idcard.IDCardFactory;
-import ss.example.designpattern.Observer.DigitObserver;
-import ss.example.designpattern.Observer.GraphObserver;
-import ss.example.designpattern.Observer.NumberGenerator;
-import ss.example.designpattern.Observer.ObserverInterface;
-import ss.example.designpattern.Observer.RandomNumberGenerator;
 import ss.example.designpattern.Singleton.Singleton;
 import ss.example.designpattern.Singleton.SingletonQuiz;
 import ss.example.designpattern.Strategy.GameCharacter;
@@ -32,44 +27,8 @@ public class MainActivity extends AppCompatActivity {
 //        singletonQuizThread();
 //        templateMethod();
 //        factoryMethod();
-        strategy();
+//        strategy();
 //        observer();
-    }
-
-
-    private void observer() {
-        NumberGenerator generator = new RandomNumberGenerator();
-        ObserverInterface observer1 = new DigitObserver();
-        ObserverInterface observer2 = new GraphObserver();
-        generator.addObserver(observer1);
-        generator.addObserver(observer2);
-        generator.execute();
-    }
-
-
-    private void strategy() {
-        GameCharacter character = new GameCharacter();
-        character.attack();
-        character.setWeapon(new Knife());
-        character.attack();
-        character.setWeapon(new Sword());
-        character.attack();
-    }
-
-    private void factoryMethod() {
-        Factory factory = new IDCardFactory();
-        Product card1 = factory.create("정종호");
-        Product card2 = factory.create("이승철");
-        Product card3 = factory.create("박종현");
-        card1.use();
-        card2.use();
-        card3.use();
-    }
-
-
-    private void templateMethod() {
-        AbstractDisplay d1 = new CharDisplay("BnpInnovation");
-        d1.display();
     }
 
     private void singleton() {
@@ -99,4 +58,30 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, "obj 1 : " + obj1.toString());
         Log.e(TAG, "obj 2 : " + obj2.toString());
     }
+
+    private void templateMethod() {
+        AbstractDisplay d1 = new CharDisplay("BnpInnovation");
+        d1.display();
+    }
+
+    private void factoryMethod() {
+        Factory factory = new IDCardFactory();
+        Product card1 = factory.create("정종호");
+        Product card2 = factory.create("이승철");
+        Product card3 = factory.create("박종현");
+        card1.use();
+        card2.use();
+        card3.use();
+    }
+
+    private void strategy() {
+        GameCharacter character = new GameCharacter();
+        character.attack();
+        character.setWeapon(new Knife());
+        character.attack();
+        character.setWeapon(new Sword());
+        character.attack();
+    }
+
+
 }
